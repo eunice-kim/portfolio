@@ -416,7 +416,7 @@ function createSingleDesign(incomingJSON) {
   newReturnButton.classList.add("design-return");
   let newReturnLink = document.createElement("A");
   newReturnLink.href="design.html"
-  newReturnLink.appendChild(document.createTextNode("SEE all designs"));
+  newReturnLink.appendChild(document.createTextNode("all designs"));
   newReturnButton.appendChild(newReturnLink);
   designSingle.appendChild(newReturnButton);
 }
