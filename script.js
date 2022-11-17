@@ -1,3 +1,8 @@
+addEventListener('DOMContentLoaded', function() {
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+});
+
 let movingImagesDatabase = [
   {
     "title" : "이미 지난 모든 봄",
@@ -207,7 +212,9 @@ function createMovingImages(incomingJSON) {
 
   for (let i = 1; i <= incomingJSON['imgCount']; i++) {
     let newImage = document.createElement("IMG");
-    newImage.src="IMGS/moving-images/" + incomingJSON['id'] + "/" + i + ".jpg";
+    let newSrc = "IMGS/moving-images/" + incomingJSON['id'] + "/" + i + ".jpg";
+    newImage.setAttribute('data-src',newSrc);
+    newImage.classList.add("lozad");
     newImage.classList.add(incomingJSON['id'] + "-carousel");
     newCarousel.appendChild(newImage);
   }
@@ -261,7 +268,9 @@ function createAnalogStills(incomingJSON) {
 
   for (let i = 1; i <= incomingJSON['imgCount']; i++) {
     let newImage = document.createElement("IMG");
-    newImage.src="IMGS/analog-stills/" + incomingJSON['id'] + "/" + i + ".jpg";
+    let newSrc ="IMGS/analog-stills/" + incomingJSON['id'] + "/" + i + ".jpg";
+    newImage.setAttribute('data-src', newSrc);
+    newImage.classList.add("lozad");
     stills.appendChild(newImage);
     if (i == 1) {
       let newDescription = document.createElement("DIV");
@@ -338,7 +347,9 @@ function createDesigns(incomingJSON) {
   let newLink = document.createElement("A");
   newLink.href = "design.html?id=" + incomingJSON['id'];
   let newThumbnail = document.createElement("IMG");
-  newThumbnail.src="IMGS/design/" + incomingJSON['id'] + "/0.jpg";
+  let newSrc="IMGS/design/" + incomingJSON['id'] + "/0.jpg";
+  newThumbnail.setAttribute('data-src',newSrc);
+  newThumbnail.classList.add("lozad");
   if (incomingJSON['thumbnail-orientation'] == "portrait") {
     newThumbnail.classList.add("portrait");
   }
