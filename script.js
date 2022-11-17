@@ -1,5 +1,5 @@
 addEventListener('DOMContentLoaded', function() {
-const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+const observer = lozad();
 observer.observe();
 });
 
